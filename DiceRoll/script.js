@@ -48,6 +48,7 @@ const switchPlayer = function () {
 // Rolling dice functionality
 btnRoll.addEventListener('click', function () {
   if (playing) {
+
     //1. Generating a random dice roll
     const dice = Math.trunc(Math.random() * 6) + 1;
 
@@ -69,6 +70,7 @@ btnRoll.addEventListener('click', function () {
 });
 
 btnHold.addEventListener('click', function () {
+
   if (playing) {
     // 1. Add current score to active player's score
     scores[activePlayer] += currentScore;
@@ -78,6 +80,7 @@ btnHold.addEventListener('click', function () {
 
     // 2. Check if player's score >= 100
     if (scores[activePlayer] >= 100) {
+  
       //Finish the game
       playing = false;
       diceEl.classList.add('hidden');
@@ -87,10 +90,11 @@ btnHold.addEventListener('click', function () {
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.remove('player--active');
-    } else {
+      } else {
       //switch to the next player
       switchPlayer();
     }
   }
 });
+
 btnNew.addEventListener('click', init);
